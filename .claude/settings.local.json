@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(rm -f shot-m.png shot-d.png)",
+      "Bash(npx next *)",
+      "Bash(node --check scripts/google-setup.mjs)"
+    ]
+  }
+}

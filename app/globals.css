@@ -1,0 +1,101 @@
+:root {
+  --bg: #fff8e1;
+  --ink: #8b1a10;
+  --leaf: #6f9a6a;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--serif), serif; font-size: 1.1rem; }
+h1, h2 { font-weight: 400; margin: 0; }
+a { color: var(--ink); }
+
+nav {
+  position: fixed; top: .6rem; left: 50%; translate: -50% 0; z-index: 10;
+  display: flex; gap: 1.5rem; padding: .45rem 1.4rem; border-radius: 999px;
+  background: rgba(255, 248, 225, .88); backdrop-filter: blur(6px);
+  box-shadow: 0 1px 8px rgba(139, 26, 16, .15);
+  letter-spacing: .15em; text-transform: uppercase; font-size: .8rem;
+}
+nav a { text-decoration: none; }
+
+/* ---------- Home hero: fits one screen on phones and desktops ---------- */
+.hero {
+  position: relative; min-height: 100svh; overflow: hidden; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero img { position: absolute; display: block; pointer-events: none; user-select: none; }
+
+.top-flowers { --h: clamp(150px, 30svh, 320px); position: absolute; top: 0; left: 0; width: 100%; height: var(--h); background: url(/assets/TopFlowers.png) repeat-x top left; background-size: auto calc(var(--h) / 0.6); transform-origin: top center; animation: sway 7s ease-in-out infinite alternate; scale: 1.04; }
+
+.leaves { top: 30%; width: clamp(70px, 12vw, 190px); height: auto; transform-origin: center; animation: rustle 6s ease-in-out infinite alternate; }
+.leaves.right { right: 0; }
+.leaves.left { left: 0; scale: -1 1; }
+
+.bushes { bottom: 0; width: clamp(180px, 34vw, 560px); height: auto; animation: rise 1.2s ease-out both; }
+.bushes.left { left: 0; scale: -1 1; }
+.bushes.right { right: 0; }
+
+.person { bottom: 0; height: min(56svh, 480px); width: auto; z-index: 1; }
+.groom { left: clamp(0%, 5vw, 12%); animation: in-left 1.2s .3s ease-out both; }
+.bride { right: clamp(0%, 5vw, 12%); animation: in-right 1.2s .3s ease-out both; }
+
+.invite { position: relative; z-index: 2; padding: clamp(7rem, 28svh, 14rem) 1rem clamp(6rem, 10svh, 8rem); max-width: 100%; }
+.invite > * { animation: fade-up 1s ease-out both; }
+.invite > :nth-child(1) { animation-delay: .2s; }
+.invite > :nth-child(2) { animation-delay: .5s; }
+.invite > :nth-child(3) { animation-delay: .8s; }
+.invite > :nth-child(4) { animation-delay: 1s; }
+.invite > :nth-child(5) { animation-delay: 1.2s; }
+.invite > :nth-child(6) { animation-delay: 1.4s; }
+
+.eyebrow { letter-spacing: .1em; text-transform: uppercase; font-size: clamp(.8rem, 1.6vw, 1.2rem); line-height: 1.5; margin: 0; text-shadow: 0 0 8px var(--bg), 0 0 14px var(--bg), 0 0 20px var(--bg); }
+.invite h1 { font-family: var(--script), cursive; font-size: min(17vw, 9.5svh, 6.5rem); line-height: 1.05; display: grid; justify-items: center; margin: .4rem 0; }
+.invite h1 em { font-size: .45em; line-height: 1; }
+.when { font-size: clamp(1.05rem, 2.2vw, 1.7rem); margin: .8rem 0 .4rem; }
+.where { font-size: clamp(1rem, 1.9vw, 1.4rem); margin: 0 0 .5rem; }
+.countdown { display: flex; justify-content: center; gap: clamp(.9rem, 3vw, 1.8rem); margin-top: 1rem; }
+.countdown div { display: grid; }
+.countdown b { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 600; }
+.countdown span { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; }
+
+@media (max-width: 700px) {
+  .hero { height: 100svh; min-height: 600px; }
+  .top-flowers { --h: 150px; background-size: auto 240px; background-position: center top; }
+  .person { height: min(24svh, 58vw); bottom: 9svh; }
+  .bushes { width: 46vw; z-index: 2; }
+  .groom { left: 2%; } .bride { right: 2%; }
+  .leaves { top: 30%; width: 17vw; }
+  .invite { padding: 17svh 1rem 32svh; }
+  .invite h1 { font-size: min(15vw, 8svh); }
+  .when { margin-top: .5rem; }
+  .countdown { margin-top: .6rem; }
+}
+
+@keyframes sway { from { rotate: -.7deg; } to { rotate: .7deg; } }
+@keyframes rustle { from { rotate: -2deg; } to { rotate: 2.5deg; } }
+@keyframes rise { from { translate: 0 40%; opacity: 0; } }
+@keyframes in-left { from { translate: -60px 0; opacity: 0; } }
+@keyframes in-right { from { translate: 60px 0; opacity: 0; } }
+@keyframes fade-up { from { translate: 0 18px; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}
+
+/* ---------- Other pages ---------- */
+.section { max-width: 960px; margin: 0 auto; padding: 4.5rem 1rem 4rem; text-align: center; }
+.section h2 { font-family: var(--script), cursive; font-size: 3rem; margin-top: 1rem; }
+.upload { display: flex; flex-direction: column; gap: .75rem; max-width: 360px; margin: 1.5rem auto; }
+input, button { font: inherit; padding: .7rem 1rem; border-radius: 6px; border: 1px solid var(--ink); background: #fff; color: inherit; max-width: 100%; }
+input { font-size: 1rem; } /* >=16px stops iOS zoom on focus */
+button { background: var(--ink); color: #fff; cursor: pointer; }
+button:disabled { opacity: .6; }
+button.danger { background: #555; border-color: #555; }
+button.link { background: none; color: var(--ink); border: 0; text-decoration: underline; }
+.ok { color: #2d6a3e; } .err { color: #b00020; } .muted { opacity: .6; }
+.grid { columns: 3 220px; column-gap: 1rem; margin-top: 2rem; }
+@media (max-width: 520px) { .grid { columns: 2 140px; column-gap: .6rem; } }
+figure { margin: 0 0 1rem; break-inside: avoid; }
+figure img { width: 100%; border-radius: 6px; display: block; }
+figcaption { font-size: .9rem; opacity: .7; margin-top: .25rem; }
+.actions { display: flex; gap: .5rem; justify-content: center; margin-top: .5rem; }
+.actions button { padding: .3rem .8rem; font-size: .9rem; }
