@@ -20,7 +20,7 @@ nav a { text-decoration: none; }
 
 /* ---------- Home hero: fits one screen on phones and desktops ---------- */
 .hero {
-  position: relative; min-height: 100svh; overflow: hidden; text-align: center;
+  position: relative; min-height: calc(100svh - 3.2rem); overflow: hidden; text-align: center;
   display: flex; align-items: center; justify-content: center;
 }
 .hero img { position: absolute; display: block; pointer-events: none; user-select: none; }
@@ -59,7 +59,7 @@ nav a { text-decoration: none; }
 .countdown span { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; }
 
 @media (max-width: 700px) {
-  .hero { height: 100svh; min-height: 600px; }
+  .hero { height: calc(100svh - 3.2rem); min-height: 560px; }
   .top-flowers { --h: 150px; background-size: auto 240px; background-position: center top; }
   .person { height: min(24svh, 58vw); bottom: 9svh; }
   .bushes { width: 46vw; z-index: 2; }
@@ -99,3 +99,5 @@ figure img { width: 100%; border-radius: 6px; display: block; }
 figcaption { font-size: .9rem; opacity: .7; margin-top: .25rem; }
 .actions { display: flex; gap: .5rem; justify-content: center; margin-top: .5rem; }
 .actions button { padding: .3rem .8rem; font-size: .9rem; }
+
+footer { position: relative; z-index: 3; height: 3.2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 .4rem; padding: 0 1rem; font-size: .85rem; text-align: center; opacity: .85; }

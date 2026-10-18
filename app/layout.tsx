@@ -19,6 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/gallery">Gallery</Link>
         </nav>
         {children}
+        <footer>
+          Designed &amp; built by Sourabh
+          <span> · Want one for your big day? <a href="mailto:ovrtxhq@gmail.com">ovrtxhq@gmail.com</a></span>
+        </footer>
       </body>
     </html>
   );
